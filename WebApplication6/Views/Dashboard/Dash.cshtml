@@ -1,0 +1,471 @@
+﻿@{
+    ViewBag.title = "GP spread";
+    if (Session["userid"] == null)
+    {
+        Response.Redirect("/Account/Login");
+    }
+}
+<style>
+    html {
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    .navbar-default {
+        background-color: #fff;
+        border-color: #e7e7e7;
+    }
+
+    .loginbg {
+        position: relative;
+        display: block;
+        background: url('../../Content/themes/base/images/beverage-blank-break-997719.jpg');
+        background-size: cover;
+        min-height: 115vh;
+    }
+
+    footer {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        bottom: 0;
+        padding: 10px;
+        background: #fff;
+    }
+
+    .login-form {
+        position: absolute;
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin-top: 25em;
+        transform: translateY(-50%);
+        background: #fff;
+        border-radius: 5px;
+        -webkit-box-shadow: 3px 3px 44px -11px rgba(145,145,145,1);
+        -moz-box-shadow: 3px 3px 44px -11px rgba(145,145,145,1);
+        box-shadow: 3px 3px 44px -11px rgba(145,145,145,1);
+    }
+
+    h3.login-heading {
+        padding: 25px 15px;
+        background: #50b1fb;
+        text-align: center;
+        display: block;
+        font-size: 26px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 700;
+        color: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        margin: 0;
+    }
+
+    .main-form {
+        padding: 30px 40px;
+    }
+
+    .link {
+        text-decoration: none;
+        color: #50b1fb;
+    }
+
+    .margin-top-30 {
+        margin-top: 30px;
+    }
+
+    .navbar-default {
+        margin-bottom: 0;
+    }
+
+    .navbar-brand {
+        float: left;
+        padding: 0;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+        .navbar-brand img {
+            width: 150px;
+        }
+
+    .content {
+        margin-left: 45px;
+        padding: 9px 0;
+        padding-left: 12px;
+    }
+
+    .label {
+        margin-left: -140px;
+    }
+
+    .pop {
+        right: auto;
+        left: 33%;
+        width: 641px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        height: 378px;
+        margin-top: 7%;
+    }
+
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .button1 {
+        margin: -2px 3px;
+        font-size: 14px;
+        color: #333;
+        /* background-color: #AED6F1;*/
+        background-color: DodgerBlue;
+        border-color: #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .navbar-inverse1 {
+        background-color: powderblue;
+        border-color: #080808;
+    }
+
+    .dropdown-menu > .active > a,
+    .dropdown-menu > .active > a:hover,
+    .dropdown-menu > .active > a:focus {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: Salmon;
+        outline: 0;
+    }
+</style>
+
+<title></title>
+
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.blueopal.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.blueopal.mobile.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="https://kendo.cdn.telerik.com/2018.2.620/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2018.2.620/js/kendo.all.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/2018.2.620/js/jszip.min.js"></script>
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/Account/login"> <img src="~/Content/themes/base/images/Logo.jpg" /></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" @*style="margin-right:244px;"*@>
+            <li>
+                <h5 style="font-weight:bold;"><label style="font-size:15px; color:#428bca; margin-left:1%">Login User:</label> @Session["username"].ToString() </h5>
+                <h5 style="font-weight:bold;"><label style="font-size:15px; color:#428bca;margin-left:0%">Login Time:</label>@Session["Time"].ToString()</h5>
+            </li>
+        </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="loginbg">
+
+    <div class="col-md-12">
+
+        <ul class="nav nav-pills nav-justified navbar-inverse1">
+            <li class="active"><a href="/Dashboard/Dash" style="font-size:17px;font-weight:bold;color:black;background-color:#428bca;"> GP Spread </a></li>
+            <li><a href="/Dashboard/cosearch" style="font-size:17px;font-weight:bold;color:black;">CO Search</a></li>
+            
+            <li><a href="/Account/ResetPassword" style="font-size:17px;font-weight:bold;color:black;">Reset Password</a></li>
+            <li><a href="/Dashboard/logout" style="font-size:17px;font-weight:bold;color:black;">Log out</a></li>
+        </ul>
+    </div>
+    @if (ViewBag.rights != null)
+    {
+        <div class="col-md-3" style="margin-top:4px;">
+            <h3 style="font-weight: bold; margin-left: 198px;width: 300px;">Recruiter Dashboard</h3>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-3" style="margin-top:4px;">
+            <h3 style="font-weight: bold; margin-left: 198px;width: 300px;">Manager Dashboard</h3>
+        </div>
+    }
+    @*<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" style="margin-right:244px;">
+                <li>
+                    <h5 style="font-weight:bold;">Login User:@Session["username"].ToString() </h5>
+                    <h5 style="font-weight:bold;">Login Time: @Session["Time"].ToString()</h5>
+                </li>
+            </ul>
+        </div>*@<!-- /.navbar-collapse -->
+    <div class="col-md-9 col-sm-12 col-md-10 col-md-offset-1" style="width:85%;">
+        <div class="panel panel-primary list-panel" id="list-panel" style="margin-top:0px;">
+            <div class="panel-heading list-panel-heading" style="height:30px;">
+                <div class="col-md-9">
+                    <h1 class="panel-title list-panel-title">Consultants Details</h1>
+                </div>
+                <div class="col-md-offset-3">
+                    @foreach (var item in ViewBag.status)
+                    {
+                        @Html.Label("Active", "Total Active:", htmlAttributes: new { @class = "control-label", @style = "font-size:15px; margin-left:-175px;" })
+                        @Html.Encode(item)
+
+                    }
+                    @foreach (var item in ViewBag.inactive)
+                    {
+                        @Html.Label("InActive", "Total Closed:", htmlAttributes: new { @class = "control-label", @style = "font-size:15px;margin-left:0;" })
+                        @Html.Encode(item)
+
+                    }
+                    @foreach (var item in ViewBag.FTE)
+                    {
+                        @Html.Label("FTE", "Total FTE:", htmlAttributes: new { @class = "control-label", @style = "font-size:15px;margin-left:10px;" })
+                        @Html.Encode(item)
+
+                    }
+                    @foreach (var item in ViewBag.Perm)
+                    {
+                        @Html.Label("PERM", "Total PERM:", htmlAttributes: new { @class = "control-label", @style = "font-size:15px;margin-left:10px;" })
+                        @Html.Encode(item)
+
+                    }
+                </div>
+            </div>
+            <div id="example">
+            </div>
+        </div>
+    </div>
+</div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            window.location.href='@Url.Action("view1","Dashboard")';
+
+        });
+
+        if ('@ViewBag.alert' != '') {
+            sweetAlert('@ViewBag.alert');
+
+        }
+        $(function () {
+            var values = new Array();
+            @foreach(var item in ViewBag.VALUE)
+                           {
+                               @:values.push({ CLIENT_NAME: "@item.CLIENT_NAME", EMPLOYEE_NO: "@item.EMPLOYEE_NO", CONSULTANT_NAME: "@item.CONSULTANT_NAME", EMAIL_ID: "@item.EMAIL_ID", CONTACT_NO: "@item.CONTACT_NO", JOINING_DATE: "@item.JOINING_DATE", STAFFING_START_DATE: "@item.STAFFING_START_DATE", RECRUITER_NAME: "@item.RECRUITER_NAME", CANDIDATE_STATUS: "@item.CANDIDATE_STATUS", CANDIDATEID: "@item.CANDIDATEID", DM_NAME: "@item.DM_NAME", BILL_RATE_CURRENCY: "@item.BILL_RATE_CURRENCY", BILL_RATE_FREQUENCY: "@item.BILL_RATE_FREQUENCY", PAY_RATE: "@item.PAY_RATE", PAY_RATE_CURRENCY: "@item.PAY_RATE_CURRENCY", PAY_RATE_CURRENCY: "@item.PAY_RATE_CURRENCY", PAY_RATE_FREQUENCY: "@item.PAY_RATE_FREQUENCY", PO_STATUS: "@item.PO_STATUS", PO_START_DATE: "@item.PO_START_DATE", PO_END_DATE: "@item.PO_END_DATE", ACTUAL_END_DATE: "@item.ACTUAL_END_DATE", MONTHLY_BILL_RATE: "@item.MONTHLY_BILL_RATE", BILL_RATE_CURRENCY: "@item.BILL_RATE_CURRENCY", GP_PERMONTH: "@item.GP_PERMONTH", GPM_PERMONTH: "@item.GPM_PERMONTH", COUNTRY: "@item.COUNTRY", EMP_TYPE: "@item.EMP_TYPE", GP_PERWEEK: "@item.GP_PERWEEK" });
+                           }
+            if ('@ViewBag.rights' != '') {
+                $("#example").kendoGrid({
+                    toolbar: ["excel"],
+                    excel: {
+                        fileName: "GPspread.xlsx",
+                        URL: "http://172.20.30.147:8087/Dashboard/Dash",
+                        filterable: true,
+                        allPages: true
+                    },
+                    columns: [
+                        { title: "Client Name", field: "CLIENT_NAME", width: 250 },
+                    { title: "Candidate Name ", field: "CONSULTANT_NAME", width: 200 },
+                      { title: "EmpID", field: "EMPLOYEE_NO", width: 110 },
+                        { title: "EmpType", field: "EMP_TYPE", width: 110 },
+                        { title: "DOJ", field: "JOINING_DATE", width: 150 },
+                         { title: "Recruiter", field: "RECRUITER_NAME", width: 150 },
+                   { title: "Manager", field: "DM_NAME", width: 120 },
+                    { title: "Status", field: "CANDIDATE_STATUS", width: 100 },
+                     { title: "Start Date", field: "STAFFING_START_DATE", width: 110 },
+                     { title: "Actual LWD", field: "ACTUAL_END_DATE", width: 150 },
+                     { title: "Country", field: "COUNTRY", width: 110 },
+                        { title: "Monthly Bill_Rate", field: "MONTHLY_BILL_RATE", width: 130 },
+                         { title: "Bill Rate Currency", field: "BILL_RATE_CURRENCY", width: 110 },
+                         { title: "Pay Rate", field: "PAY_RATE", width: 110 },
+                         { title: "Pay Rate Currency", field: "PAY_RATE_CURRENCY", width: 110 },
+                    { title: "PO Start Date", field: "PO_START_DATE", width: 110 },
+                     { title: "PO End Date", field: "PO_END_DATE", width: 110 },
+                                      { title: "GP Per Month", field: "GP_PERMONTH", width: 110 },
+                                          { title: "GP Per Week", field: "GP_PERWEEK", width: 110 },
+                                      { title: "GPM Per Month", field: "GPM_PERMONTH", width: 110 },
+                       {
+                           title: "View Details", template: "<span class='glyphicon glyphicon-file' aria-hidden='true' data-toggle='tooltip' title='Details' onclick=\"openPopUp('#=EMPLOYEE_NO#','#=RECRUITER_NAME#')\"></span> </span> ", width: 110,
+                           filterable: false,
+                           sortable: false
+                       }
+                    ],
+
+                    dataSource: {
+                        data: values,
+                        pageSize: 20
+                    },
+                    height: 600,
+                    scrollable: true,
+                    pageable: { refresh: true },
+                    sortable: {
+                        mode: "multiple"
+                    },
+                    filterable: true,
+                    groupable: true,
+                    reorderable: true,
+                    resizable: true,
+                });
+            }
+            else {
+
+                $("#example").kendoGrid({
+                    toolbar: ["excel"],
+                    excel: {
+                        fileName: "GPspread.xlsx",
+                        URL: "http://172.20.30.147:8087/Dashboard/Dash",
+                        filterable: true,
+                        allPages: true
+                    },
+                    columns: [
+                        { title: "Client Name", field: "CLIENT_NAME", width: 250 },
+                    { title: "Candidate Name ", field: "CONSULTANT_NAME", width: 200 },
+                      { title: "EmpID", field: "EMPLOYEE_NO", width: 110 },
+                        { title: "EmpType", field: "EMP_TYPE", width: 110 },
+                        { title: "DOJ", field: "JOINING_DATE", width: 150 },
+                         { title: "Recruiter", field: "RECRUITER_NAME", width: 150 },
+                   { title: "Manager", field: "DM_NAME", width: 120 },
+                    { title: "Status", field: "CANDIDATE_STATUS", width: 100 },
+                     { title: "Start Date", field: "STAFFING_START_DATE", width: 110 },
+                     { title: "Actual LWD", field: "ACTUAL_END_DATE", width: 150 },
+                     { title: "Country", field: "COUNTRY", width: 110 },
+                        { title: "Monthly Bill_Rate", field: "MONTHLY_BILL_RATE", width: 130 },
+                         { title: "Bill Rate Currency", field: "BILL_RATE_CURRENCY", width: 110 },
+                         { title: "Pay Rate", field: "PAY_RATE", width: 110 },
+                         { title: "Pay Rate Currency", field: "PAY_RATE_CURRENCY", width: 110 },
+                    { title: "PO Start Date", field: "PO_START_DATE", width: 110 },
+                     { title: "PO End Date", field: "PO_END_DATE", width: 110 },
+                                      { title: "GP Per Month", field: "GP_PERMONTH", width: 110 },
+                                          { title: "GP Per Week", field: "GP_PERWEEK", width: 110 },
+                                      { title: "GPM Per Month", field: "GPM_PERMONTH", width: 110 },
+                       {
+                           title: "View Details & Edit", template: "<span class='glyphicon glyphicon-file' aria-hidden='true' data-toggle='tooltip' title='Details' onclick=\"openPopUp('#=EMPLOYEE_NO#','#=RECRUITER_NAME#')\"></span><span class='glyphicon glyphicon-pencil' aria-hidden='true' data-toggle='tooltip' title='Edit' style='margin-left:13px;'onclick=\"PopUp('#=EMPLOYEE_NO#','#=CONSULTANT_NAME#','#=CLIENT_NAME#')\"></span>", width: 110,
+                           filterable: false,
+                           sortable: false
+                       }
+                    ],
+
+                    dataSource: {
+                        data: values,
+                        pageSize: 20
+                    },
+
+                    height: 600,
+                    scrollable: true,
+                    pageable: { refresh: true },
+                    sortable: {
+                        mode: "multiple"
+                    },
+                    filterable: true,
+                    groupable: true,
+                    reorderable: true,
+                    resizable: true,
+                });
+
+            }
+        });
+    });
+</script>
+<div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="modal" id='myModalt'>
+        <div class="panel panel-primary modal-dialog col-sm-12 col-md-10 col-md-offset-1 pop">
+            <div class="panel-heading" style="margin-top: -30px;margin-left: -10px;margin-right: -10px;font-weight:bold;font-size:22px;">
+                Details
+            </div>
+            <div class="panel-body">
+                <div id='myModalContenty'></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="modal" id='myModalts'>
+        <div class="panel panel-primary modal-dialog col-sm-12 col-md-10 col-md-offset-1 pop">
+            <div class="panel-heading" style="margin-top: -30px;margin-left: -10px;margin-right: -10px;font-weight:bold;font-size:22px;">
+                Edit
+            </div>
+            <div class="panel-body">
+                <div id='myModalContentty'></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function PopUp(EMPLOYEE_NO, CONSULTANT_NAME, CLIENT_NAME) {
+        var options = { "backdrop": "static", keyboard: true };
+        $.ajax({
+            type: "GET",
+            url: "/Dashboard/getstatus",
+            contentType: "application/json ",
+            data: { clid: EMPLOYEE_NO, name: CONSULTANT_NAME, client: CLIENT_NAME },
+            success: function (data) {
+
+                debugger;
+                $('#myModalContentty').html(data);
+                $('#myModalts').modal('toggle');
+                $('#myModalts').modal(options);
+                $('#myModalts').modal('show');
+
+            }
+        });
+    }
+    function openPopUp(EMPLOYEE_NO, RECRUITER_NAME) {
+        debugger;
+        var options = { "backdrop": "static", keyboard: true };
+
+        $.ajax({
+            type: "GET",
+            url: "/Dashboard/Details",
+            contentType: "application/json ",
+            data: { clid: EMPLOYEE_NO, name: RECRUITER_NAME },
+            success: function (data1) {
+                debugger;
+
+                $('#myModalContenty').html(data1);
+                $('#myModalt').modal(options);
+                $('#myModalt').modal('show');
+            }
+        });
+
+    }
+</script>
+<style type="text/css">
+    .customer-photo {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-size: 32px 35px;
+        background-position: center center;
+        vertical-align: middle;
+        line-height: 32px;
+        box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+        margin-left: 5px;
+    }
+
+    .customer-name {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 32px;
+        padding-left: 3px;
+    }
+</style>
+
+

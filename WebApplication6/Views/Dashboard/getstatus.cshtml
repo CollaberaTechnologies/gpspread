@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>getstatus</title>
+    <style>
+        .styling {
+            display: block;
+            width: 50%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+        </style>
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <label>EmpID:@ViewBag.a</label>
+            <label style="margin-left:20%;">Candidate Name: @ViewBag.b</label>
+            <br/>
+            <br/>
+            <br/>
+         
+            @Html.Hidden("clid", ViewBag.a as string)
+            @Html.Hidden("name", ViewBag.b as string)
+            @Html.Hidden("clname", ViewBag.c as string)
+
+
+            <label style="float:left;width:33%">GP per Month:</label>
+            @Html.Editor("GP", new { htmlAttributes = new { @class = "styling", required = "required"} })
+            <br/>
+            <br/>
+            <label style="float:left;width:33%;">GPM per Month [Enter with percentage(%)]</label>
+            @Html.Editor("GPM", new { htmlAttributes = new { @class = "styling", required = "required"} })
+
+            <br />
+            <br/>
+           
+            <input type="submit" name="submit" value="Submit"
+                   formaction="getstatus" formmethod="post" class="btn btn-primary" style="margin-left:73%"/>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-left:8px;">Close</button>
+        </div>
+    }
+</body>
+</html>

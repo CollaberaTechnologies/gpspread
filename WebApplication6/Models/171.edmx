@@ -1,0 +1,945 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="V5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HC_RESUME_DOCUMENTS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResID" Type="bigint" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="TID" Type="bigint" Nullable="false" />
+          <Property Name="FileData" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="20" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResHTMLText" Type="nvarchar(max)" />
+          <Property Name="FileSize" Type="bigint" />
+          <Property Name="ReqResID" Type="bigint" Nullable="false" />
+          <Property Name="ResConvertedText" Type="nvarchar(max)" />
+          <Property Name="ConvertDocMigration" Type="smallint" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="V3V4RID" Type="bigint" />
+          <Property Name="IsMigrated" Type="char" MaxLength="1" />
+          <Property Name="V4FileData" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="HCM_COUNTRY">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ISDCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="LanguageType" Type="smallint" Nullable="false" />
+          <Property Name="EngKeyID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="bigint" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="RefID" Type="nvarchar" MaxLength="30" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime" />
+          <Property Name="TID" Type="bigint" Nullable="false" />
+          <Property Name="RegionID" Type="bigint" />
+          <Property Name="PincodeType" Type="smallint" />
+          <Property Name="V4RID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HCM_SKILLS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RefID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="IncludeAlias" Type="nvarchar" MaxLength="500" />
+          <Property Name="ExcludeAlias" Type="nvarchar" MaxLength="500" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="LanguageType" Type="smallint" Nullable="false" />
+          <Property Name="EngKeyID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="bigint" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime" />
+          <Property Name="TID" Type="bigint" Nullable="false" />
+          <Property Name="SkillGroupID" Type="bigint" />
+          <Property Name="V4RID" Type="bigint" Nullable="false" />
+          <Property Name="V3V4RID" Type="bigint" />
+          <Property Name="isMigrated" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="MigratedDataFrom" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="HCM_STATES">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CountryID" Type="bigint" Nullable="false" />
+          <Property Name="StateCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LanguageType" Type="smallint" Nullable="false" />
+          <Property Name="EngKeyID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="bigint" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="RefID" Type="nvarchar" MaxLength="30" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime" />
+          <Property Name="TID" Type="bigint" Nullable="false" />
+          <Property Name="V4RID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IHD_CO_SEARCH">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="500" />
+          <Property Name="PhoneNo" Type="bigint" />
+          <Property Name="EmailID" Type="varchar" MaxLength="500" />
+          <Property Name="UserName" Type="varchar" MaxLength="500" />
+          <Property Name="CallDate" Type="date" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IHD_CO_SEARCH_VIEW">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="CORID" Type="bigint" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IHD_COSEARCH_REPORT">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="Counts" Type="bigint" />
+          <Property Name="LOGINDate" Type="smalldatetime" />
+          <Property Name="LOGINtimestr" Type="nvarchar" MaxLength="800" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="800" />
+        </EntityType>
+        <Association Name="FK__IHD_CO_SE__CORID__019DD3C3">
+          <End Role="IHD_CO_SEARCH" Type="Self.IHD_CO_SEARCH" Multiplicity="0..1" />
+          <End Role="IHD_CO_SEARCH_VIEW" Type="Self.IHD_CO_SEARCH_VIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IHD_CO_SEARCH">
+              <PropertyRef Name="Rid" />
+            </Principal>
+            <Dependent Role="IHD_CO_SEARCH_VIEW">
+              <PropertyRef Name="CORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="IHD_CANDIDATEJOURNAL_VIEW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="bigint" Mode="In" />
+          <Parameter Name="v4rid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_COSEARCH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_COSEARCH_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_COSEARCH_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_COSEARCH_SKILL_3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="skillId" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="optionalid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_COSEARCH_SKILL_4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="skillId" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="optionalid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_COSEARCH_SKILL_MANOP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="locationid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="skillId" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="optionalid" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHD_GP_Spread_Location_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="country" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="IHDcandidatejournal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="V5ModelStoreContainer">
+          <EntitySet Name="HC_RESUME_DOCUMENTS" EntityType="Self.HC_RESUME_DOCUMENTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HCM_COUNTRY" EntityType="Self.HCM_COUNTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HCM_SKILLS" EntityType="Self.HCM_SKILLS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HCM_STATES" EntityType="Self.HCM_STATES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IHD_CO_SEARCH" EntityType="Self.IHD_CO_SEARCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IHD_CO_SEARCH_VIEW" EntityType="Self.IHD_CO_SEARCH_VIEW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IHD_COSEARCH_REPORT" EntityType="Self.IHD_COSEARCH_REPORT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__IHD_CO_SE__CORID__019DD3C3" Association="Self.FK__IHD_CO_SE__CORID__019DD3C3">
+            <End Role="IHD_CO_SEARCH" EntitySet="IHD_CO_SEARCH" />
+            <End Role="IHD_CO_SEARCH_VIEW" EntitySet="IHD_CO_SEARCH_VIEW" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="V5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HCM_COUNTRY">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ISDCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageType" Type="Int16" Nullable="false" />
+          <Property Name="EngKeyID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int64" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="RefID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+          <Property Name="TID" Type="Int64" Nullable="false" />
+          <Property Name="RegionID" Type="Int64" />
+          <Property Name="PincodeType" Type="Int16" />
+          <Property Name="V4RID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="V5Entities6" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HCM_COUNTRY" EntityType="Self.HCM_COUNTRY" />
+          <FunctionImport Name="IHD_COSEARCH_GRID" ReturnType="Collection(V5Model.IHD_COSEARCH_GRID_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_GRID_1" ReturnType="Collection(V5Model.IHD_COSEARCH_GRID_1_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_GRID_LOC_SKILL" ReturnType="Collection(V5Model.IHD_COSEARCH_GRID_LOC_SKILL_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_GP_Spread_Location_2" ReturnType="Collection(V5Model.IHD_GP_Spread_Location_2_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="HCM_SKILLS" EntityType="V5Model.HCM_SKILLS" />
+          <FunctionImport Name="IHD_COSEARCH_GRID_2" ReturnType="Collection(V5Model.IHD_COSEARCH_GRID_2_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="HC_RESUME_DOCUMENTS" EntityType="V5Model.HC_RESUME_DOCUMENTS" />
+          <FunctionImport Name="IHD_COSEARCH_LOC_SKILL" ReturnType="Collection(V5Model.IHD_COSEARCH_LOC_SKILL_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH" ReturnType="Collection(V5Model.IHD_COSEARCH_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_GRID_LOC_SKILL_2">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_GRID_LOC_SKILL_3" ReturnType="Collection(V5Model.IHD_COSEARCH_GRID_LOC_SKILL_3_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_LOC_SKILL_1" ReturnType="Collection(V5Model.IHD_COSEARCH_LOC_SKILL_1_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_LOC_SKILL_2" ReturnType="Collection(V5Model.IHD_COSEARCH_LOC_SKILL_2_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_1" ReturnType="Collection(V5Model.IHD_COSEARCH_1_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_LOC_SKILL_3" ReturnType="Collection(V5Model.IHD_COSEARCH_LOC_SKILL_3_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="optionalid" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_2" ReturnType="Collection(V5Model.IHD_COSEARCH_2_Result)">
+          <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_SKILL_MANOP" ReturnType="Collection(V5Model.IHD_COSEARCH_SKILL_MANOP_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="optionalid" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_SKILL_3" ReturnType="Collection(V5Model.IHD_COSEARCH_SKILL_3_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="optionalid" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHD_COSEARCH_SKILL_4" ReturnType="Collection(V5Model.IHD_COSEARCH_SKILL_4_Result)">
+            <Parameter Name="locationid" Mode="In" Type="String" />
+            <Parameter Name="skillId" Mode="In" Type="String" />
+            <Parameter Name="optionalid" Mode="In" Type="String" />
+            <Parameter Name="country" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="HCM_STATES" EntityType="V5Model.HCM_STATES" />
+          <EntitySet Name="IHD_CO_SEARCH" EntityType="V5Model.IHD_CO_SEARCH" />
+          <EntitySet Name="IHD_CO_SEARCH_VIEW" EntityType="V5Model.IHD_CO_SEARCH_VIEW" />
+          <AssociationSet Name="FK__IHD_CO_SE__CORID__019DD3C3" Association="V5Model.FK__IHD_CO_SE__CORID__019DD3C3">
+            <End Role="IHD_CO_SEARCH" EntitySet="IHD_CO_SEARCH" />
+            <End Role="IHD_CO_SEARCH_VIEW" EntitySet="IHD_CO_SEARCH_VIEW" />
+          </AssociationSet>
+          <FunctionImport Name="IHD_CANDIDATEJOURNAL_VIEW" ReturnType="Collection(V5Model.IHD_CANDIDATEJOURNAL_VIEW_Result)">
+            <Parameter Name="rid" Mode="In" Type="Int64" />
+            <Parameter Name="v4rid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="IHDcandidatejournal" ReturnType="Collection(V5Model.IHDcandidatejournal_Result)" />
+          <EntitySet Name="IHD_COSEARCH_REPORT" EntityType="V5Model.IHD_COSEARCH_REPORT" />
+        </EntityContainer>
+        <ComplexType Name="IHD_COSEARCH_GRID_Result">
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PhoneNo" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_GRID_1_Result">
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+          <Property Type="Int64" Name="RID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_GRID_LOC_SKILL_Result">
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_GP_Spread_Location_2_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="LocationTitle" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="HCM_SKILLS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RefID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IncludeAlias" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ExcludeAlias" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="LanguageType" Type="Int16" Nullable="false" />
+          <Property Name="EngKeyID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int64" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+          <Property Name="TID" Type="Int64" Nullable="false" />
+          <Property Name="SkillGroupID" Type="Int64" />
+          <Property Name="V4RID" Type="Int64" Nullable="false" />
+          <Property Name="V3V4RID" Type="Int64" />
+          <Property Name="isMigrated" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MigratedDataFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="IHD_COSEARCH_GRID_2_Result">
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="HC_RESUME_DOCUMENTS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResID" Type="Int64" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TID" Type="Int64" Nullable="false" />
+          <Property Name="FileData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResHTMLText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileSize" Type="Int64" />
+          <Property Name="ReqResID" Type="Int64" Nullable="false" />
+          <Property Name="ResConvertedText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConvertDocMigration" Type="Int16" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="V3V4RID" Type="Int64" />
+          <Property Name="IsMigrated" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="V4FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="IHD_COSEARCH_LOC_SKILL_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_GRID_LOC_SKILL_3_Result">
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="items" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_LOC_SKILL_1_Result">
+          <Property Type="Int64" Name="rid" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="items" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_LOC_SKILL_2_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="items" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_1_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="Int32" Name="items" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_LOC_SKILL_3_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Skill_ID" Nullable="false" />
+          <Property Type="String" Name="mandatory" Nullable="false" />
+          <Property Type="String" Name="optional" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="Int32" Name="SkillCount" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_2_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="Int32" Name="mandatory" Nullable="true" />
+          <Property Type="Int32" Name="optional" Nullable="true" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_SKILL_MANOP_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Skill_ID" Nullable="false" />
+          <Property Type="String" Name="mandatory" Nullable="false" />
+          <Property Type="String" Name="optional" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="Int32" Name="SkillCount" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_SKILL_3_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Skill_ID" Nullable="false" />
+          <Property Type="String" Name="mandatory" Nullable="false" />
+          <Property Type="String" Name="optional" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="Int32" Name="SkillCount" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="IHD_COSEARCH_SKILL_4_Result">
+          <Property Type="Int64" Name="RID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Int64" Name="CurrentLocation" Nullable="true" />
+          <Property Type="String" Name="Resume_Owner" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Skill_Name" Nullable="false" />
+          <Property Type="String" Name="Skill_ID" Nullable="false" />
+          <Property Type="String" Name="mandatory" Nullable="false" />
+          <Property Type="String" Name="optional" Nullable="false" />
+          <Property Type="Int64" Name="Skilllenth" Nullable="true" />
+          <Property Type="Int32" Name="SkillCount" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="HCM_STATES">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CountryID" Type="Int64" Nullable="false" />
+          <Property Name="StateCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageType" Type="Int16" Nullable="false" />
+          <Property Name="EngKeyID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int64" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="RefID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+          <Property Name="TID" Type="Int64" Nullable="false" />
+          <Property Name="V4RID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IHD_CO_SEARCH">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="Int64" />
+          <Property Name="EmailID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CallDate" Type="DateTime" Precision="0" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IHD_CO_SEARCH_VIEW" Relationship="V5Model.FK__IHD_CO_SE__CORID__019DD3C3" FromRole="IHD_CO_SEARCH" ToRole="IHD_CO_SEARCH_VIEW" />
+        </EntityType>
+        <EntityType Name="IHD_CO_SEARCH_VIEW">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="CORID" Type="Int64" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IHD_CO_SEARCH" Relationship="V5Model.FK__IHD_CO_SE__CORID__019DD3C3" FromRole="IHD_CO_SEARCH_VIEW" ToRole="IHD_CO_SEARCH" />
+        </EntityType>
+        <Association Name="FK__IHD_CO_SE__CORID__019DD3C3">
+          <End Type="V5Model.IHD_CO_SEARCH" Role="IHD_CO_SEARCH" Multiplicity="0..1" />
+          <End Type="V5Model.IHD_CO_SEARCH_VIEW" Role="IHD_CO_SEARCH_VIEW" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IHD_CO_SEARCH">
+              <PropertyRef Name="Rid" />
+            </Principal>
+            <Dependent Role="IHD_CO_SEARCH_VIEW">
+              <PropertyRef Name="CORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="IHD_CANDIDATEJOURNAL_VIEW_Result">
+          <Property Type="String" Name="Comments" Nullable="true" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="151" />
+        </ComplexType>
+        <ComplexType Name="IHDcandidatejournal_Result">
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="30" />
+          <Property Type="Int64" Name="Rid" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="500" />
+          <Property Type="Int64" Name="PhoneNo" Nullable="true" />
+          <Property Type="String" Name="EmailID" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="CallDate" Nullable="true" />
+          <Property Type="String" Name="Comments" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="IHD_COSEARCH_REPORT">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="Counts" Type="Int64" />
+          <Property Name="LOGINDate" Type="DateTime" Precision="0" />
+          <Property Name="LOGINtimestr" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="V5ModelStoreContainer" CdmEntityContainer="V5Entities6">
+          <EntitySetMapping Name="HCM_COUNTRY">
+            <EntityTypeMapping TypeName="V5Model.HCM_COUNTRY">
+              <MappingFragment StoreEntitySet="HCM_COUNTRY">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="ISDCode" ColumnName="ISDCode" />
+                <ScalarProperty Name="LanguageType" ColumnName="LanguageType" />
+                <ScalarProperty Name="EngKeyID" ColumnName="EngKeyID" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="PincodeType" ColumnName="PincodeType" />
+                <ScalarProperty Name="V4RID" ColumnName="V4RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IHD_GP_Spread_Location_2" FunctionName="V5Model.Store.IHD_GP_Spread_Location_2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_GP_Spread_Location_2_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="LocationTitle" ColumnName="LocationTitle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="HCM_SKILLS">
+            <EntityTypeMapping TypeName="V5Model.HCM_SKILLS">
+              <MappingFragment StoreEntitySet="HCM_SKILLS">
+                <ScalarProperty Name="MigratedDataFrom" ColumnName="MigratedDataFrom" />
+                <ScalarProperty Name="isMigrated" ColumnName="isMigrated" />
+                <ScalarProperty Name="V3V4RID" ColumnName="V3V4RID" />
+                <ScalarProperty Name="V4RID" ColumnName="V4RID" />
+                <ScalarProperty Name="SkillGroupID" ColumnName="SkillGroupID" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="EngKeyID" ColumnName="EngKeyID" />
+                <ScalarProperty Name="LanguageType" ColumnName="LanguageType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ExcludeAlias" ColumnName="ExcludeAlias" />
+                <ScalarProperty Name="IncludeAlias" ColumnName="IncludeAlias" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HC_RESUME_DOCUMENTS">
+            <EntityTypeMapping TypeName="V5Model.HC_RESUME_DOCUMENTS">
+              <MappingFragment StoreEntitySet="HC_RESUME_DOCUMENTS">
+                <ScalarProperty Name="V4FileData" ColumnName="V4FileData" />
+                <ScalarProperty Name="IsMigrated" ColumnName="IsMigrated" />
+                <ScalarProperty Name="V3V4RID" ColumnName="V3V4RID" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ConvertDocMigration" ColumnName="ConvertDocMigration" />
+                <ScalarProperty Name="ResConvertedText" ColumnName="ResConvertedText" />
+                <ScalarProperty Name="ReqResID" ColumnName="ReqResID" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="ResHTMLText" ColumnName="ResHTMLText" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ResID" ColumnName="ResID" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IHD_COSEARCH" FunctionName="V5Model.Store.IHD_COSEARCH">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_COSEARCH_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Resume_Owner" ColumnName="Resume Owner" />
+                <ScalarProperty Name="Skill_Name" ColumnName="Skill Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IHD_COSEARCH_1" FunctionName="V5Model.Store.IHD_COSEARCH_1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_COSEARCH_1_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Resume_Owner" ColumnName="Resume Owner" />
+                <ScalarProperty Name="Skill_Name" ColumnName="Skill Name" />
+                <ScalarProperty Name="items" ColumnName="items" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IHD_COSEARCH_2" FunctionName="V5Model.Store.IHD_COSEARCH_2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_COSEARCH_2_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Resume_Owner" ColumnName="Resume Owner" />
+                <ScalarProperty Name="Skill_Name" ColumnName="Skill Name" />
+                <ScalarProperty Name="mandatory" ColumnName="mandatory" />
+                <ScalarProperty Name="optional" ColumnName="optional" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IHD_COSEARCH_SKILL_MANOP" FunctionName="V5Model.Store.IHD_COSEARCH_SKILL_MANOP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_COSEARCH_SKILL_MANOP_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Resume_Owner" ColumnName="Resume Owner" />
+                <ScalarProperty Name="Skill_Name" ColumnName="Skill Name" />
+                <ScalarProperty Name="Skill_ID" ColumnName="Skill ID" />
+                <ScalarProperty Name="mandatory" ColumnName="mandatory" />
+                <ScalarProperty Name="optional" ColumnName="optional" />
+                <ScalarProperty Name="Skilllenth" ColumnName="Skilllenth" />
+                <ScalarProperty Name="SkillCount" ColumnName="SkillCount" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IHD_COSEARCH_SKILL_3" FunctionName="V5Model.Store.IHD_COSEARCH_SKILL_3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_COSEARCH_SKILL_3_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Resume_Owner" ColumnName="Resume Owner" />
+                <ScalarProperty Name="Skill_Name" ColumnName="Skill Name" />
+                <ScalarProperty Name="Skill_ID" ColumnName="Skill ID" />
+                <ScalarProperty Name="mandatory" ColumnName="mandatory" />
+                <ScalarProperty Name="optional" ColumnName="optional" />
+                <ScalarProperty Name="Skilllenth" ColumnName="Skilllenth" />
+                <ScalarProperty Name="SkillCount" ColumnName="SkillCount" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IHD_COSEARCH_SKILL_4" FunctionName="V5Model.Store.IHD_COSEARCH_SKILL_4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_COSEARCH_SKILL_4_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Resume_Owner" ColumnName="Resume Owner" />
+                <ScalarProperty Name="Skill_Name" ColumnName="Skill Name" />
+                <ScalarProperty Name="Skill_ID" ColumnName="Skill ID" />
+                <ScalarProperty Name="mandatory" ColumnName="mandatory" />
+                <ScalarProperty Name="optional" ColumnName="optional" />
+                <ScalarProperty Name="Skilllenth" ColumnName="Skilllenth" />
+                <ScalarProperty Name="SkillCount" ColumnName="SkillCount" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="HCM_STATES">
+            <EntityTypeMapping TypeName="V5Model.HCM_STATES">
+              <MappingFragment StoreEntitySet="HCM_STATES">
+                <ScalarProperty Name="V4RID" ColumnName="V4RID" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="EngKeyID" ColumnName="EngKeyID" />
+                <ScalarProperty Name="LanguageType" ColumnName="LanguageType" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IHD_CO_SEARCH">
+            <EntityTypeMapping TypeName="V5Model.IHD_CO_SEARCH">
+              <MappingFragment StoreEntitySet="IHD_CO_SEARCH">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IHD_CO_SEARCH_VIEW">
+            <EntityTypeMapping TypeName="V5Model.IHD_CO_SEARCH_VIEW">
+              <MappingFragment StoreEntitySet="IHD_CO_SEARCH_VIEW">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="CORID" ColumnName="CORID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IHD_CANDIDATEJOURNAL_VIEW" FunctionName="V5Model.Store.IHD_CANDIDATEJOURNAL_VIEW">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHD_CANDIDATEJOURNAL_VIEW_Result">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="IHDcandidatejournal" FunctionName="V5Model.Store.IHDcandidatejournal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="V5Model.IHDcandidatejournal_Result">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="IHD_COSEARCH_REPORT">
+            <EntityTypeMapping TypeName="V5Model.IHD_COSEARCH_REPORT">
+              <MappingFragment StoreEntitySet="IHD_COSEARCH_REPORT">
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="LOGINtimestr" ColumnName="LOGINtimestr" />
+                <ScalarProperty Name="LOGINDate" ColumnName="LOGINDate" />
+                <ScalarProperty Name="Counts" ColumnName="Counts" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

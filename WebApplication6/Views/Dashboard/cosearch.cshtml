@@ -1,0 +1,573 @@
+﻿@model WebApplication6.Models.HCM_LOCATIONS
+@{
+    ViewBag.title = "CO Search";
+    if (Session["userid"] == null)
+    {
+        Response.Redirect("/Account/Login");
+    }
+}
+<style>
+    html {
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    .navbar-default {
+        background-color: #fff;
+        border-color: #e7e7e7;
+    }
+
+    .loginbg {
+        position: relative;
+        display: block;
+        background: url('../../Content/themes/base/images/beverage-blank-break-997719.jpg');
+        background-size: cover;
+        min-height: 115vh;
+    }
+
+    footer {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        bottom: 0;
+        padding: 10px;
+        background: #fff;
+    }
+
+    .login-form {
+        position: absolute;
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin-top: 25em;
+        transform: translateY(-50%);
+        background: #fff;
+        border-radius: 5px;
+        -webkit-box-shadow: 3px 3px 44px -11px rgba(145,145,145,1);
+        -moz-box-shadow: 3px 3px 44px -11px rgba(145,145,145,1);
+        box-shadow: 3px 3px 44px -11px rgba(145,145,145,1);
+    }
+
+    h3.login-heading {
+        padding: 25px 15px;
+        background: #50b1fb;
+        text-align: center;
+        display: block;
+        font-size: 26px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 700;
+        color: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        margin: 0;
+    }
+
+    .main-form {
+        padding: 30px 40px;
+    }
+
+    .link {
+        text-decoration: none;
+        color: #50b1fb;
+    }
+
+    .margin-top-30 {
+        margin-top: 30px;
+    }
+
+    .navbar-default {
+        margin-bottom: 0;
+    }
+
+    .navbar-brand {
+        float: left;
+        padding: 0;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+        .navbar-brand img {
+            width: 150px;
+        }
+
+    .content {
+        margin-left: 45px;
+        padding: 9px 0;
+        padding-left: 12px;
+    }
+
+    .label {
+        margin-left: -140px;
+    }
+
+    .pop {
+        right: auto;
+        left: 33%;
+        width: 641px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        height: 378px;
+        margin-top: 7%;
+    }
+
+    .ch1 {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        padding: 4px 0 0 9px;
+        height: 35px;
+        width: 40%;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        background-color: #fff;
+        background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+        background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+        background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+        background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+        background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+        background-clip: padding-box;
+        box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+        color: #444;
+        text-decoration: none;
+        white-space: nowrap;
+        line-height: 24px;
+    }
+
+    .ch2 {
+        position: relative;
+        /*display: inline-block;*/
+        vertical-align: middle;
+        font-size: 13px;
+        zoom: 1;
+        *display: inline;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        width: 40%;
+    }
+
+    .button1 {
+        margin: -2px 3px;
+        font-size: 14px;
+        color: #333;
+        background-color: white;
+        border-color: #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .navbar-inverse1 {
+        background-color: powderblue;
+        border-color: #080808;
+    }
+</style>
+<title></title>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.common.min.css" />
+@*<link href="~/assets/assets/css/bootstrap.min.css" rel="stylesheet" />*@
+<link href="~/Content/chosen.css" rel="stylesheet" />
+<link href="~/assets/assets/css/animate.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.common.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.blueopal.min.css" />
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.blueopal.mobile.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="~/assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+<script src="https://kendo.cdn.telerik.com/2018.2.620/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2018.2.620/js/kendo.all.min.js"></script>
+<script src="http://kendo.cdn.telerik.com/2018.2.620/js/jszip.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#locations").append('<option value="'
+                                                                           + 0 + '">'
+                                                    + "ALL" + '</option>');
+        $("#locations").trigger("chosen:updated");
+    });
+</script>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/Account/login"> <img src="~/Content/themes/base/images/Logo.jpg" /></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" @*style="margin-right:244px;"*@>
+            <li>
+                <h5 style="font-weight:bold;"><label style="font-size:15px; color:#428bca; margin-left:1%">Login User:</label> @Session["username"].ToString() </h5>
+                <h5 style="font-weight:bold;"><label style="font-size:15px; color:#428bca;margin-left:0%">Login Time:</label>@Session["Time"].ToString()</h5>
+            </li>
+        </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="loginbg">
+            <div class="col-md-12">
+                <ul class="nav nav-pills nav-justified navbar-inverse1">
+                    <li><a href="/Dashboard/Dash" style="font-size:17px;font-weight:bold;color:black;">GP Spread</a></li>
+                    <li class="active"><a href="/Dashboard/cosearch" style="font-size:17px;font-weight:bold;color:black;background-color:#428bca;">CO Search</a></li>
+                    
+                    <li><a href="/Account/ResetPassword" style="font-size:17px;font-weight:bold;color:black;">Reset Password</a></li>
+                    <li><a href="/Dashboard/logout" style="font-size:17px;font-weight:bold;color:black;">Log out</a></li>
+
+
+                </ul>
+            </div>
+            <div class="col-md-3" style="margin-top:4px;">
+                @*<h3 style="font-weight: bold; margin-left: 198px;width: 300px;">CO Search</h3>*@
+            </div>
+            @*<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right" style="margin-right:244px;">
+                        <li>
+                            <h5 style="font-weight:bold;">Login User:@Session["username"].ToString() </h5>
+                            <h5 style="font-weight:bold;">Login Time:@Session["Time"].ToString()</h5>
+                        </li>
+                    </ul>
+                </div>*@<!--/.navbar-collapse -->
+            <div class="row">
+                <div class="col-md-10" style="margin-left:7%;margin-top:1%;">
+                    <div class="card" style="background-color:#AED6F1">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <!--DROPDOWN FOR Location NAME-->
+
+                                            <label class="control-label" style="width: 111px;color: black;font-size: 16px;text-transform: capitalize;font-weight: 600;">Country</label>
+                                            @Html.DropDownList("countries", ViewBag.country as List<SelectListItem>, new { @class = "col-md-9 ch1 responsiveChosen", @style = "height:39px;" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label" style="width: 111px;color: black;font-size: 16px;text-transform: capitalize;font-weight: 600;">Location</label>
+                                            <div class="">
+                                                @Html.ListBox("locations", ViewBag.location as SelectList, new { @class = "col-md-9 ch1  responsiveChosen", @style = "height:39px;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <!--DROPDOWN FOR Requirement NAME-->
+                                            <label class="control-label" style="color: black;font-size: 16px;text-transform: capitalize;font-weight: 600;"> Mandatory Skill  <span style="color:red;font-weight:bold">*</span></label>
+                                            @Html.ListBox("Mandatory", (MultiSelectList)ViewBag.skill, new { @class = "col-md-9 ch1 responsiveChosen", @style = "height:45px;" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <!--DROPDOWN FOR Requirement NAME-->
+                                            <label class="control-label" style="width: 111px;color: black;font-size: 16px;text-transform: capitalize;font-weight: 600;">Optional Skill</label>
+                                            @Html.ListBox("Optional", (MultiSelectList)ViewBag.skilldata, new { @class = "col-md-9 ch1 responsiveChosen", @style = "height:45px;" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <button type="submit" id="btnSearch" class="button1" style="margin-top:24%;">
+                                                <span class="glyphicon glyphicon-search">Search</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-md-10 col-md-offset-1" style="margin-left: 6%;width: 85%;">
+                <div class="panel panel-primary list-panel" id="list-panel" style="margin-top:0px;">
+                    <div class="panel-heading list-panel-heading" style="height:35px;">
+                        <div class="col-md-9">
+                            <h1 class="panel-title list-panel-title">Resume Search</h1>
+                        </div>
+                    </div>
+                    <div id="example">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script src="~/Scripts/chosen.jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+<script>
+    function createskill(allskils, selectedskills) {
+        debugger;
+        var template = '';
+        var allskill = allskils.split(",");
+        var selectedskill = selectedskills.split(",");
+        var uniqallskill = _.uniq(allskill);
+
+        var length1 = uniqallskill.length - 1;
+        var length2 = selectedskill.length - 1;
+        //console.log('unique arra is ', _.uniq(allskill));
+        var i;
+        var j;
+        var count = 0;
+        for (i = 0; i < length1; i++) {
+            for (j = 0; j < length2; j++) {
+                if (uniqallskill[i] == selectedskill[j]) {
+                    count += 1;
+                    if (template.length > 0) {
+                        template += ","; // Add a comma if data already exists
+                    }
+                    template += "" + selectedskill[j] + "";
+                }
+            }
+        }
+        return count;
+    }
+    function optionalcount(allskils, selectedskills) {
+        var template = '';
+        var allskill = allskils.split(",");
+        var selectedskill = selectedskills.split(",");
+        var uniqallskill = _.uniq(allskill);
+        var arr = ["a", "b", "c", "a", "b"];
+        console.log('unique arra is ', _.uniq(arr));
+        var length1 = uniqallskill.length - 1;
+        var length2 = selectedskill.length - 1;
+        //console.log('unique arra is ', _.uniq(allskill));
+        var i;
+        var j;
+        var count = 0;
+        for (i = 0; i < length1; i++) {
+            for (j = 0; j < length2; j++) {
+                if (uniqallskill[i] == selectedskill[j]) {
+                    count += 1;
+                    if (template.length > 0) {
+                        template += ","; // Add a comma if data already exists
+                    }
+                    template += "" + selectedskill[j] + "";
+                }
+            }
+        }
+        return count;
+    }
+    function createdskills(allskils, selectedskills) {
+        debugger;
+        var template = '';
+        var allskill = allskils.split(",");
+        var selectedskill = selectedskills.split(",");
+        var uniqallskill = _.uniq(allskill);
+        var length1 = uniqallskill.length - 1;
+        var length2 = selectedskill.length - 1;
+        var i;
+        var j;
+        var count = 0;
+        for (i = 0; i < length1; i++) {
+            for (j = 0; j < length2; j++) {
+                if (uniqallskill[i] == selectedskill[j]) {
+                    count += 1;
+                    if (template.length > 0) {
+                        template += ","; // Add a comma if data already exists
+                    }
+                    template += "" + selectedskill[j] + "";
+                }
+            }
+        }
+        return template;
+    }
+    function substringdata(str){
+        var allskill = str.split(",");
+        var res = "";
+        for (i = 0; i <= 5; i++) {
+            if(allskill[i]!=undefined)
+            {
+                if (res.length > 0) {
+
+                    res += ","; // Add a comma if data already exists
+                }
+                res += "" + allskill[i] + "";
+            }
+            else {
+                break;
+            }
+        }
+        if (allskill[6] != undefined) {
+            res = res + " ...<b> more </b>";
+
+        };
+        var data= "<a  data-toggle='tooltip' style='color:black;' title='"+str+"'>"+res+"</a>"
+
+     return data;
+    }
+    function optionalskills(allskils, selectedskills) {
+        debugger;
+        var template = '';
+        var allskill = allskils.split(",");
+        var selectedskill = selectedskills.split(",");
+        var uniqallskill = _.uniq(allskill);
+        var length1 = uniqallskill.length - 1;
+        var length2 = selectedskill.length - 1;
+        var i;
+        var j;
+        var count = 0;
+        for (i = 0; i < length1; i++) {
+            for (j = 0; j < length2; j++) {
+                if (uniqallskill[i] == selectedskill[j]) {
+                    count += 1;
+                    if (template.length > 0) {
+
+                        template += ","; // Add a comma if data already exists
+                    }
+                    template += "" + selectedskill[j] + "";
+                }
+            }
+        }
+        return template;
+    }
+    //function allcount(allskils, mandatory, optional) {
+    //    var count1 = createskill(allskils, mandatory);
+    //    var count2 = optionalcount(allskils, optional);
+    //    return count1+count2;
+    //}
+    function createTemplateFor(columnName) {
+        var template = " <br><a target='_blank' href='/Dashboard/GetFile?rid=" + columnName + "'>View Resume</a>"
+        ;
+        return template;
+    }
+    $(document).ready(function () {
+        $("#locations").chosen({ placeholder_text_multiple: "Please select Location" });
+
+        $("#Mandatory").chosen({
+            placeholder_text_multiple: "Please Select Skills", required:true
+        }
+           );
+        $("#Optional").chosen({
+            placeholder_text_multiple: "Please Select Skills"
+        }
+       );
+        $("#countries").chosen();
+        $("#btnSearch").click(function () {
+            if(  $("#Mandatory").val()==null)
+            {
+                alert("Please Select Mandatory Skills");
+                document.getElementById('btnSearch').disabled = 'disabled';
+
+            }
+
+        })
+        $(function () {
+
+            var values = new Array();
+            @foreach(var item in ViewBag.grid)
+            {
+
+                @:values.push({ FirstName: "@item.FirstName", LastName: "@item.LastName", EmailID: "@item.EmailID", MobileNo: "@item.MobileNo", Resume_Owner: "@item.Resume_Owner", Skill_Name: "@item.Skill_Name", Location: "@item.Location", RID: "@item.RID", mandatory: "@item.mandatory", optional: "@item.optional", itemsdata: createdskills("@item.Skill_Name", "@item.mandatory"), optionaldata: optionalskills("@item.Skill_Name", "@item.optional"), itemsoptional: optionalcount("@item.Skill_Name", "@item.optional"), itemsmandatory: createskill("@item.Skill_Name", "@item.mandatory"), substring: substringdata("@item.Skill_Name") });
+                                                                                    }
+            dataSource = new kendo.data.DataSource({
+                data: values,
+                pageSize: 20,
+                sort: [{ field: "itemsmandatory", dir: "desc" },
+                    { field: "itemsoptional", dir: "desc" }
+
+                ]
+            });
+
+            $("#example").kendoGrid({
+                toolbar: ["excel"],
+                excel: {
+                    fileName: "CO Search.xlsx",
+                    URL: "http://172.20.30.147:8087/Dashboard/Dash",
+                    filterable: true,
+                    allPages: true
+                },
+                sortable: true,
+                filterable: true,
+                columns: [
+                    { hidden: true, field: "RID" },
+                    { title: "First Name", field: "FirstName", width: 120 },
+                { title: "Last Name", field: "LastName", width: 120 },
+                  { title: "Email ID", field: "EmailID", width: 200 },
+                    { title: "Mobile No", field: "MobileNo", width: 110 },
+     { title: "Resume Owner", field: "Resume_Owner", width: 120 },
+       { hidden: true, field: "mandatory" },
+        { hidden: true, field: "optional" },
+
+       {
+           title: "Skills", field: "substring ", template: function (dataItem) {
+               return substringdata(kendo.htmlEncode(dataItem.Skill_Name));
+           }, width: 250,
+       },
+     {
+         title: "Mandatory", field: "itemsdata ", template: function (dataItem) {
+             return createdskills(kendo.htmlEncode(dataItem.Skill_Name), kendo.htmlEncode(dataItem.mandatory));
+         }, width: 170,
+     },
+      {
+          title: "Count", field: "itemsmandatory ", template: function (dataItem) {
+              return createskill(kendo.htmlEncode(dataItem.Skill_Name), kendo.htmlEncode(dataItem.mandatory));
+          }, width: 100,
+
+      },
+     {
+         title: "Optional", field: "optionaldata ", template: function (dataItem) {
+             return optionalskills(kendo.htmlEncode(dataItem.Skill_Name), kendo.htmlEncode(dataItem.optional));
+         }, width: 170,
+     },
+
+       {
+           title: "Count", field: "itemsoptional ", template: function (dataItem) {
+               return optionalcount(kendo.htmlEncode(dataItem.Skill_Name), kendo.htmlEncode(dataItem.optional));
+           }, width: 100,
+
+       },
+     { title: "Location", field: "Location", width: 110 },
+
+     { title: "Documents", template: " <br><a target='_blank' href='/Dashboard/GetFile?rid=" + "#=RID#" + "'>View Resume</a>", width: 110 },
+
+                ],
+
+                dataSource: dataSource,
+                height: 600,
+                width: 800,
+                scrollable: true,
+                pageable: { refresh: true },
+
+
+                groupable: true,
+                reorderable: true,
+                resizable: true,
+            });
+        });
+        $("#Mandatory").change(function () {
+            document.getElementById('btnSearch').disabled = '';
+
+        })
+        $("#countries").change(function () {
+            $("#locations").empty();
+
+            var client = $("#countries").val();
+            debugger;
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("location")',
+                dataType: 'json',
+                data: { countryid: $("#countries").val() },
+                success: function (city) {
+                    var a = [];
+                    $("#locations").append('<option value="'
+                                                                 + 0 + '">'
+                                          + "ALL" + '</option>');
+                    $.each(city, function (i, city) {
+                        a[i] = city.Value;
+                        $("#locations").append('<option value="'
+                                              + city.Value + '">'
+                       + city.Text + '</option>');
+                    });
+                    $("#locations").trigger("chosen:updated");
+                }
+            });
+        });
+    });
+</script>

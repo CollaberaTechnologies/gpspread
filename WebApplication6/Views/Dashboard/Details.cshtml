@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+@foreach ( var item in ViewBag.VALUE){
+<div class="form-horizontal">
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.Label("CLIENT_NAME", "Client Name:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.CLIENT_NAME)
+        </div>
+        <div class="form-group">
+            @Html.Label("CANDIDATEID", "CandidateID:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.CANDIDATEID)
+        </div>
+        <div class="form-group">
+            @Html.Label("CONTACT_NO", "Contact No:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.CONTACT_NO)
+        </div>
+        <div class="form-group">
+            @Html.Label("EMAIL_ID", "EmailID:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.EMAIL_ID)
+        </div>
+       
+        <div class="form-group">
+            @Html.Label("CONSULTANT_NAME", "Consultant Name:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.CONSULTANT_NAME)
+        </div>
+
+        <div class="form-group">
+            @Html.Label("RECRUITER_NAME", "Recruiter:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.RECRUITER_NAME)
+        </div>
+       
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            @Html.Label("MONTHLY_BILL_RATE", "Monthly Bill Rate:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.MONTHLY_BILL_RATE)
+        </div>
+        <div class="form-group">
+            @Html.Label("JOINING_DATE", "DOJ:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.JOINING_DATE)
+        </div>
+        <div class="form-group">
+            @Html.Label("ACTUAL_END_DATE", "ActualLWD:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.ACTUAL_END_DATE)
+        </div>
+        <div class="form-group">
+            @Html.Label("PO_STATUS", "PO_Status:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.PO_STATUS)
+        </div>
+        <div class="form-group">
+            @Html.Label("GP_PERMONTH", "GP_Per Month", htmlAttributes: new { @class = "control -label" })
+            @Html.Encode(@item.GP_PERMONTH)
+        </div>
+        <div class="form-group">
+            @Html.Label("GPM_PERMONTH", "GPM Per Month:", htmlAttributes: new { @class = "control-label" })
+            @Html.Encode(@item.GPM_PERMONTH)
+        </div>
+
+    </div>
+    <div class="footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+
+    </div>
+}
+
+
+    

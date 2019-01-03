@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LIVEDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HC_USERS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salutation" Type="smallint" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="DivisionID" Type="bigint" Nullable="false" />
+          <Property Name="LocationID" Type="bigint" Nullable="false" />
+          <Property Name="RightsID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="bigint" Nullable="false" />
+          <Property Name="EncKey" Type="nvarchar" MaxLength="20" />
+          <Property Name="EncVec" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeamID" Type="bigint" Nullable="false" />
+          <Property Name="AccessRights" Type="bigint" Nullable="false" />
+          <Property Name="ReportsTo" Type="bigint" Nullable="false" />
+          <Property Name="ResourceCost" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccessLevel" Type="ntext" />
+          <Property Name="UserXML1" Type="xml" />
+          <Property Name="Notes" Type="ntext" />
+          <Property Name="AccessQuery" Type="ntext" />
+          <Property Name="MailSignature" Type="image" />
+          <Property Name="AccessType" Type="smallint" Nullable="false" />
+          <Property Name="ISRecruiter" Type="smallint" Nullable="false" />
+          <Property Name="ISTeamLeader" Type="smallint" Nullable="false" />
+          <Property Name="ISOpManager" Type="smallint" Nullable="false" />
+          <Property Name="ISBuManager" Type="smallint" Nullable="false" />
+          <Property Name="ISHRManager" Type="smallint" Nullable="false" />
+          <Property Name="ISTopManager" Type="smallint" Nullable="false" />
+          <Property Name="ISPartner" Type="smallint" Nullable="false" />
+          <Property Name="InProcessNotification" Type="smallint" Nullable="false" />
+          <Property Name="ResumeNotification" Type="smallint" Nullable="false" />
+          <Property Name="BlockedResumeNotification" Type="smallint" Nullable="false" />
+          <Property Name="HCUserID" Type="bigint" Nullable="false" />
+          <Property Name="RLTS" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="NA_TS" Type="datetime" />
+          <Property Name="RL_TS" Type="datetime" />
+          <Property Name="HL_TS" Type="datetime" />
+          <Property Name="EDU_TS" Type="datetime" />
+          <Property Name="FA_TS" Type="datetime" />
+          <Property Name="IT_TS" Type="datetime" />
+          <Property Name="JT_TS" Type="datetime" />
+          <Property Name="ST_TS" Type="datetime" />
+          <Property Name="SF_TS" Type="datetime" />
+          <Property Name="PA_TS" Type="datetime" />
+          <Property Name="HU_TS" Type="datetime" />
+          <Property Name="HC_TS" Type="datetime" />
+          <Property Name="NewReqCheck" Type="smallint" Nullable="false" />
+          <Property Name="ISSale" Type="smallint" Nullable="false" />
+          <Property Name="ISContactConf" Type="smallint" Nullable="false" />
+          <Property Name="CreatedUserID" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ManageUnassignedResume" Type="smallint" Nullable="false" />
+          <Property Name="V3JobsUserID" Type="bigint" Nullable="false" />
+          <Property Name="Document" Type="image" />
+          <Property Name="LastPasswordExpiryDate" Type="datetime" />
+          <Property Name="ADSUserID" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="InprocessNotificationtoOthers" Type="smallint" Nullable="false" />
+          <Property Name="JobTitle2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnableMACCheck" Type="smallint" Nullable="false" />
+          <Property Name="ISInduction" Type="smallint" Nullable="false" />
+          <Property Name="RVendorID" Type="bigint" Nullable="false" />
+          <Property Name="DesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="SearchDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="ResumeDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="OfferDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="MarkAsSignatoryUser" Type="smallint" Nullable="false" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImgPhoto" Type="image" />
+          <Property Name="QCManagerDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="LanguageType" Type="smallint" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="bigint" Nullable="false" />
+          <Property Name="IntSchedulerDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="HRInterviewDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="PFXFileData" Type="image" />
+          <Property Name="DesignLayoutTemplateID" Type="bigint" Nullable="false" />
+          <Property Name="ChkLatestMail" Type="smallint" Nullable="false" />
+          <Property Name="INT_TS" Type="datetime" />
+          <Property Name="UNI_TS" Type="datetime" />
+          <Property Name="SKL_TS" Type="datetime" />
+          <Property Name="EncKeyAsBytes" Type="image" />
+          <Property Name="EncVecAsBytes" Type="image" />
+          <Property Name="HCMSyncStatus" Type="smallint" Nullable="false" />
+          <Property Name="CLICON_TS" Type="datetime" />
+          <Property Name="CLI_TS" Type="datetime" />
+          <Property Name="EMP_TS" Type="datetime" />
+          <Property Name="HealthMeterID" Type="bigint" Nullable="false" />
+          <Property Name="ReqQuery" Type="nvarchar(max)" />
+          <Property Name="Is_HCAdmin" Type="smallint" Nullable="false" />
+          <Property Name="DOJ" Type="datetime" />
+          <Property Name="Is_PortalParser" Type="smallint" Nullable="false" />
+          <Property Name="LastFailedAttempt" Type="datetime" />
+          <Property Name="LastFailedAttemptCnt" Type="int" Nullable="false" />
+          <Property Name="Is_QCAuditMgr2" Type="smallint" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Is_ERSuperManager" Type="smallint" Nullable="false" />
+          <Property Name="Is_OperationsSuperManager" Type="smallint" Nullable="false" />
+          <Property Name="Is_AuditSuperManager" Type="smallint" Nullable="false" />
+          <Property Name="Is_GlobalManager" Type="smallint" Nullable="false" />
+          <Property Name="OperationMgrGrpID" Type="bigint" Nullable="false" />
+          <Property Name="AuditMgrGrpID" Type="bigint" Nullable="false" />
+          <Property Name="CanUserAccessPOExtention" Type="smallint" />
+          <Property Name="ROOprSMgr" Type="smallint" Nullable="false" />
+          <Property Name="RecruiterHead" Type="bigint" Nullable="false" />
+          <Property Name="HRHead" Type="bigint" Nullable="false" />
+          <Property Name="InvoiceLocID" Type="bigint" Nullable="false" />
+          <Property Name="FTEOperationMgrGrpID" Type="bigint" Nullable="false" />
+          <Property Name="FTEAuditMgrGrpID" Type="bigint" Nullable="false" />
+          <Property Name="PermOperationMgrGrpID" Type="bigint" Nullable="false" />
+          <Property Name="PermAuditMgrGrpID" Type="bigint" Nullable="false" />
+          <Property Name="JoiningRemaindersDesignLayout" Type="bigint" Nullable="false" />
+          <Property Name="V5RID" Type="bigint" />
+          <Property Name="pswd" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="HCM_LOCATIONS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="RegionID" Type="bigint" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="RefID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MCreatedUser" Type="bigint" Nullable="false" />
+          <Property Name="MCreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="MModifiedUser" Type="bigint" Nullable="false" />
+          <Property Name="GSTStateID" Type="bigint" Nullable="false" />
+          <Property Name="GSTNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GSTAddress" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="Recruiter_details_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="RecruiterTracking_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="GP" Type="decimal" Mode="In" />
+          <Parameter Name="GPM" Type="nvarchar" Mode="In" />
+          <Parameter Name="clientname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RecruiterTracking_insert_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+          <Parameter Name="id" Type="nvarchar" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="GP" Type="decimal" Mode="In" />
+          <Parameter Name="GPM" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RecrutierCandidateTrackingCountActive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="RecrutierCandidateTrackingCountFTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="RecrutierCandidateTrackingCountInActive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="RecrutierCandidateTrackingCountPermanant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="RecrutierCandidateTrackingDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="employeeno" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RecrutierTrackingSystem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="bigint" Mode="In" />
+        </Function>
+        <EntityContainer Name="LIVEDBModelStoreContainer">
+          <EntitySet Name="HC_USERS" EntityType="Self.HC_USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HCM_LOCATIONS" EntityType="Self.HCM_LOCATIONS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LIVEDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HC_USERS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salutation" Type="Int16" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DivisionID" Type="Int64" Nullable="false" />
+          <Property Name="LocationID" Type="Int64" Nullable="false" />
+          <Property Name="RightsID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int64" Nullable="false" />
+          <Property Name="EncKey" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EncVec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamID" Type="Int64" Nullable="false" />
+          <Property Name="AccessRights" Type="Int64" Nullable="false" />
+          <Property Name="ReportsTo" Type="Int64" Nullable="false" />
+          <Property Name="ResourceCost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccessLevel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserXML1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccessQuery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailSignature" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="AccessType" Type="Int16" Nullable="false" />
+          <Property Name="ISRecruiter" Type="Int16" Nullable="false" />
+          <Property Name="ISTeamLeader" Type="Int16" Nullable="false" />
+          <Property Name="ISOpManager" Type="Int16" Nullable="false" />
+          <Property Name="ISBuManager" Type="Int16" Nullable="false" />
+          <Property Name="ISHRManager" Type="Int16" Nullable="false" />
+          <Property Name="ISTopManager" Type="Int16" Nullable="false" />
+          <Property Name="ISPartner" Type="Int16" Nullable="false" />
+          <Property Name="InProcessNotification" Type="Int16" Nullable="false" />
+          <Property Name="ResumeNotification" Type="Int16" Nullable="false" />
+          <Property Name="BlockedResumeNotification" Type="Int16" Nullable="false" />
+          <Property Name="HCUserID" Type="Int64" Nullable="false" />
+          <Property Name="RLTS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NA_TS" Type="DateTime" Precision="3" />
+          <Property Name="RL_TS" Type="DateTime" Precision="3" />
+          <Property Name="HL_TS" Type="DateTime" Precision="3" />
+          <Property Name="EDU_TS" Type="DateTime" Precision="3" />
+          <Property Name="FA_TS" Type="DateTime" Precision="3" />
+          <Property Name="IT_TS" Type="DateTime" Precision="3" />
+          <Property Name="JT_TS" Type="DateTime" Precision="3" />
+          <Property Name="ST_TS" Type="DateTime" Precision="3" />
+          <Property Name="SF_TS" Type="DateTime" Precision="3" />
+          <Property Name="PA_TS" Type="DateTime" Precision="3" />
+          <Property Name="HU_TS" Type="DateTime" Precision="3" />
+          <Property Name="HC_TS" Type="DateTime" Precision="3" />
+          <Property Name="NewReqCheck" Type="Int16" Nullable="false" />
+          <Property Name="ISSale" Type="Int16" Nullable="false" />
+          <Property Name="ISContactConf" Type="Int16" Nullable="false" />
+          <Property Name="CreatedUserID" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ManageUnassignedResume" Type="Int16" Nullable="false" />
+          <Property Name="V3JobsUserID" Type="Int64" Nullable="false" />
+          <Property Name="Document" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastPasswordExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="ADSUserID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InprocessNotificationtoOthers" Type="Int16" Nullable="false" />
+          <Property Name="JobTitle2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnableMACCheck" Type="Int16" Nullable="false" />
+          <Property Name="ISInduction" Type="Int16" Nullable="false" />
+          <Property Name="RVendorID" Type="Int64" Nullable="false" />
+          <Property Name="DesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="SearchDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="ResumeDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="OfferDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="MarkAsSignatoryUser" Type="Int16" Nullable="false" />
+          <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImgPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="QCManagerDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="LanguageType" Type="Int16" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="Int64" Nullable="false" />
+          <Property Name="IntSchedulerDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="HRInterviewDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="PFXFileData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DesignLayoutTemplateID" Type="Int64" Nullable="false" />
+          <Property Name="ChkLatestMail" Type="Int16" Nullable="false" />
+          <Property Name="INT_TS" Type="DateTime" Precision="3" />
+          <Property Name="UNI_TS" Type="DateTime" Precision="3" />
+          <Property Name="SKL_TS" Type="DateTime" Precision="3" />
+          <Property Name="EncKeyAsBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EncVecAsBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="HCMSyncStatus" Type="Int16" Nullable="false" />
+          <Property Name="CLICON_TS" Type="DateTime" Precision="3" />
+          <Property Name="CLI_TS" Type="DateTime" Precision="3" />
+          <Property Name="EMP_TS" Type="DateTime" Precision="3" />
+          <Property Name="HealthMeterID" Type="Int64" Nullable="false" />
+          <Property Name="ReqQuery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Is_HCAdmin" Type="Int16" Nullable="false" />
+          <Property Name="DOJ" Type="DateTime" Precision="3" />
+          <Property Name="Is_PortalParser" Type="Int16" Nullable="false" />
+          <Property Name="LastFailedAttempt" Type="DateTime" Precision="3" />
+          <Property Name="LastFailedAttemptCnt" Type="Int32" Nullable="false" />
+          <Property Name="Is_QCAuditMgr2" Type="Int16" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Is_ERSuperManager" Type="Int16" Nullable="false" />
+          <Property Name="Is_OperationsSuperManager" Type="Int16" Nullable="false" />
+          <Property Name="Is_AuditSuperManager" Type="Int16" Nullable="false" />
+          <Property Name="Is_GlobalManager" Type="Int16" Nullable="false" />
+          <Property Name="OperationMgrGrpID" Type="Int64" Nullable="false" />
+          <Property Name="AuditMgrGrpID" Type="Int64" Nullable="false" />
+          <Property Name="CanUserAccessPOExtention" Type="Int16" />
+          <Property Name="ROOprSMgr" Type="Int16" Nullable="false" />
+          <Property Name="RecruiterHead" Type="Int64" Nullable="false" />
+          <Property Name="HRHead" Type="Int64" Nullable="false" />
+          <Property Name="InvoiceLocID" Type="Int64" Nullable="false" />
+          <Property Name="FTEOperationMgrGrpID" Type="Int64" Nullable="false" />
+          <Property Name="FTEAuditMgrGrpID" Type="Int64" Nullable="false" />
+          <Property Name="PermOperationMgrGrpID" Type="Int64" Nullable="false" />
+          <Property Name="PermAuditMgrGrpID" Type="Int64" Nullable="false" />
+          <Property Name="JoiningRemaindersDesignLayout" Type="Int64" Nullable="false" />
+          <Property Name="V5RID" Type="Int64" />
+          <Property Name="pswd" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="LIVEDBEntities7" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HC_USERS" EntityType="Self.HC_USERS" />
+          <FunctionImport Name="Recruiter_details" ReturnType="Collection(Decimal)">
+          <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="RecruiterTracking_data">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="GP" Mode="In" Type="Decimal" />
+            <Parameter Name="GPM" Mode="In" Type="String" />
+            <Parameter Name="clientname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RecruiterTracking_insert_data">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+            <Parameter Name="id" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="GP" Mode="In" Type="Decimal" />
+            <Parameter Name="GPM" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RecrutierCandidateTrackingCountActive" ReturnType="Collection(Int32)">
+          <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="RecrutierCandidateTrackingCountFTE" ReturnType="Collection(Int32)">
+          <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="RecrutierCandidateTrackingCountInActive" ReturnType="Collection(Int32)">
+          <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="RecrutierCandidateTrackingCountPermanant" ReturnType="Collection(Int32)">
+          <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="RecrutierCandidateTrackingDetails" ReturnType="Collection(LIVEDBModel.RecrutierCandidateTrackingDetails_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="employeeno" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RecrutierTrackingSystem" ReturnType="Collection(LIVEDBModel.RecrutierTrackingSystem_Result)">
+          <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="HCM_LOCATIONS" EntityType="LIVEDBModel.HCM_LOCATIONS" />
+          <FunctionImport Name="Recruiter_details_1" ReturnType="Collection(Decimal)">
+            <Parameter Name="userid" Mode="In" Type="Int64" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="RecrutierCandidateTrackingDetails_Result">
+          <Property Type="String" Name="CLIENT_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CANDIDATEID" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="EMPLOYEE_NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONSULTANT_NAME" Nullable="false" MaxLength="301" />
+          <Property Type="String" Name="CONTACT_NO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EMAIL_ID" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="JOINING_DATE" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="RECRUITER_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DM_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CANDIDATE_STATUS" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="STAFFING_START_DATE" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="ACTUAL_END_DATE" Nullable="true" MaxLength="4000" />
+          <Property Type="Decimal" Name="MONTHLY_BILL_RATE" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="BILL_RATE_CURRENCY" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BILL_RATE_FREQUENCY" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="PAY_RATE_CURRENCY" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PAY_RATE_FREQUENCY" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="PO_NUMBER" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PO_STATUS" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="PO_START_DATE" Nullable="false" MaxLength="4000" />
+          <Property Type="String" Name="PO_END_DATE" Nullable="false" MaxLength="4000" />
+          <Property Type="Decimal" Name="PAY_RATE" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="COUNTRY" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="GP_PERMONTH" Nullable="false" Precision="30" Scale="0" />
+          <Property Type="String" Name="GPM_PERMONTH" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="RecrutierTrackingSystem_Result">
+          <Property Type="String" Name="CLIENT_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CANDIDATEID" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="EMPLOYEE_NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONSULTANT_NAME" Nullable="false" MaxLength="301" />
+          <Property Type="String" Name="CONTACT_NO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EMAIL_ID" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="JOINING_DATE" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="RECRUITER_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DM_NAME" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="CANDIDATE_STATUS" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="STAFFING_START_DATE" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="ACTUAL_END_DATE" Nullable="true" MaxLength="4000" />
+          <Property Type="Decimal" Name="MONTHLY_BILL_RATE" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="BILL_RATE_CURRENCY" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BILL_RATE_FREQUENCY" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="PAY_RATE_CURRENCY" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PAY_RATE_FREQUENCY" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="PO_NUMBER" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PO_STATUS" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="PO_START_DATE" Nullable="false" MaxLength="4000" />
+          <Property Type="String" Name="PO_END_DATE" Nullable="false" MaxLength="4000" />
+          <Property Type="Decimal" Name="PAY_RATE" Nullable="false" Precision="30" Scale="0" />
+          <Property Type="String" Name="COUNTRY" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="GP_PERMONTH" Nullable="false" Precision="30" Scale="0" />
+          <Property Type="Decimal" Name="GP_PERWEEK" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="String" Name="GPM_PERMONTH" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EMP_TYPE" Nullable="false" MaxLength="9" />
+        </ComplexType>
+        <EntityType Name="HCM_LOCATIONS">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RegionID" Type="Int64" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="RefID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MCreatedUser" Type="Int64" Nullable="false" />
+          <Property Name="MCreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MModifiedUser" Type="Int64" Nullable="false" />
+          <Property Name="GSTStateID" Type="Int64" Nullable="false" />
+          <Property Name="GSTNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GSTAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LIVEDBModelStoreContainer" CdmEntityContainer="LIVEDBEntities7">
+          <EntitySetMapping Name="HC_USERS">
+            <EntityTypeMapping TypeName="LIVEDBModel.HC_USERS">
+              <MappingFragment StoreEntitySet="HC_USERS">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="RightsID" ColumnName="RightsID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EncKey" ColumnName="EncKey" />
+                <ScalarProperty Name="EncVec" ColumnName="EncVec" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="AccessRights" ColumnName="AccessRights" />
+                <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+                <ScalarProperty Name="ResourceCost" ColumnName="ResourceCost" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="UserXML1" ColumnName="UserXML1" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="AccessQuery" ColumnName="AccessQuery" />
+                <ScalarProperty Name="MailSignature" ColumnName="MailSignature" />
+                <ScalarProperty Name="AccessType" ColumnName="AccessType" />
+                <ScalarProperty Name="ISRecruiter" ColumnName="ISRecruiter" />
+                <ScalarProperty Name="ISTeamLeader" ColumnName="ISTeamLeader" />
+                <ScalarProperty Name="ISOpManager" ColumnName="ISOpManager" />
+                <ScalarProperty Name="ISBuManager" ColumnName="ISBuManager" />
+                <ScalarProperty Name="ISHRManager" ColumnName="ISHRManager" />
+                <ScalarProperty Name="ISTopManager" ColumnName="ISTopManager" />
+                <ScalarProperty Name="ISPartner" ColumnName="ISPartner" />
+                <ScalarProperty Name="InProcessNotification" ColumnName="InProcessNotification" />
+                <ScalarProperty Name="ResumeNotification" ColumnName="ResumeNotification" />
+                <ScalarProperty Name="BlockedResumeNotification" ColumnName="BlockedResumeNotification" />
+                <ScalarProperty Name="HCUserID" ColumnName="HCUserID" />
+                <ScalarProperty Name="RLTS" ColumnName="RLTS" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="NA_TS" ColumnName="NA_TS" />
+                <ScalarProperty Name="RL_TS" ColumnName="RL_TS" />
+                <ScalarProperty Name="HL_TS" ColumnName="HL_TS" />
+                <ScalarProperty Name="EDU_TS" ColumnName="EDU_TS" />
+                <ScalarProperty Name="FA_TS" ColumnName="FA_TS" />
+                <ScalarProperty Name="IT_TS" ColumnName="IT_TS" />
+                <ScalarProperty Name="JT_TS" ColumnName="JT_TS" />
+                <ScalarProperty Name="ST_TS" ColumnName="ST_TS" />
+                <ScalarProperty Name="SF_TS" ColumnName="SF_TS" />
+                <ScalarProperty Name="PA_TS" ColumnName="PA_TS" />
+                <ScalarProperty Name="HU_TS" ColumnName="HU_TS" />
+                <ScalarProperty Name="HC_TS" ColumnName="HC_TS" />
+                <ScalarProperty Name="NewReqCheck" ColumnName="NewReqCheck" />
+                <ScalarProperty Name="ISSale" ColumnName="ISSale" />
+                <ScalarProperty Name="ISContactConf" ColumnName="ISContactConf" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ManageUnassignedResume" ColumnName="ManageUnassignedResume" />
+                <ScalarProperty Name="V3JobsUserID" ColumnName="V3JobsUserID" />
+                <ScalarProperty Name="Document" ColumnName="Document" />
+                <ScalarProperty Name="LastPasswordExpiryDate" ColumnName="LastPasswordExpiryDate" />
+                <ScalarProperty Name="ADSUserID" ColumnName="ADSUserID" />
+                <ScalarProperty Name="InprocessNotificationtoOthers" ColumnName="InprocessNotificationtoOthers" />
+                <ScalarProperty Name="JobTitle2" ColumnName="JobTitle2" />
+                <ScalarProperty Name="EnableMACCheck" ColumnName="EnableMACCheck" />
+                <ScalarProperty Name="ISInduction" ColumnName="ISInduction" />
+                <ScalarProperty Name="RVendorID" ColumnName="RVendorID" />
+                <ScalarProperty Name="DesignLayout" ColumnName="DesignLayout" />
+                <ScalarProperty Name="SearchDesignLayout" ColumnName="SearchDesignLayout" />
+                <ScalarProperty Name="ResumeDesignLayout" ColumnName="ResumeDesignLayout" />
+                <ScalarProperty Name="OfferDesignLayout" ColumnName="OfferDesignLayout" />
+                <ScalarProperty Name="MarkAsSignatoryUser" ColumnName="MarkAsSignatoryUser" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="ImgPhoto" ColumnName="ImgPhoto" />
+                <ScalarProperty Name="QCManagerDesignLayout" ColumnName="QCManagerDesignLayout" />
+                <ScalarProperty Name="LanguageType" ColumnName="LanguageType" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="IntSchedulerDesignLayout" ColumnName="IntSchedulerDesignLayout" />
+                <ScalarProperty Name="HRInterviewDesignLayout" ColumnName="HRInterviewDesignLayout" />
+                <ScalarProperty Name="PFXFileData" ColumnName="PFXFileData" />
+                <ScalarProperty Name="DesignLayoutTemplateID" ColumnName="DesignLayoutTemplateID" />
+                <ScalarProperty Name="ChkLatestMail" ColumnName="ChkLatestMail" />
+                <ScalarProperty Name="INT_TS" ColumnName="INT_TS" />
+                <ScalarProperty Name="UNI_TS" ColumnName="UNI_TS" />
+                <ScalarProperty Name="SKL_TS" ColumnName="SKL_TS" />
+                <ScalarProperty Name="EncKeyAsBytes" ColumnName="EncKeyAsBytes" />
+                <ScalarProperty Name="EncVecAsBytes" ColumnName="EncVecAsBytes" />
+                <ScalarProperty Name="HCMSyncStatus" ColumnName="HCMSyncStatus" />
+                <ScalarProperty Name="CLICON_TS" ColumnName="CLICON_TS" />
+                <ScalarProperty Name="CLI_TS" ColumnName="CLI_TS" />
+                <ScalarProperty Name="EMP_TS" ColumnName="EMP_TS" />
+                <ScalarProperty Name="HealthMeterID" ColumnName="HealthMeterID" />
+                <ScalarProperty Name="ReqQuery" ColumnName="ReqQuery" />
+                <ScalarProperty Name="Is_HCAdmin" ColumnName="Is_HCAdmin" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Is_PortalParser" ColumnName="Is_PortalParser" />
+                <ScalarProperty Name="LastFailedAttempt" ColumnName="LastFailedAttempt" />
+                <ScalarProperty Name="LastFailedAttemptCnt" ColumnName="LastFailedAttemptCnt" />
+                <ScalarProperty Name="Is_QCAuditMgr2" ColumnName="Is_QCAuditMgr2" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Is_ERSuperManager" ColumnName="Is_ERSuperManager" />
+                <ScalarProperty Name="Is_OperationsSuperManager" ColumnName="Is_OperationsSuperManager" />
+                <ScalarProperty Name="Is_AuditSuperManager" ColumnName="Is_AuditSuperManager" />
+                <ScalarProperty Name="Is_GlobalManager" ColumnName="Is_GlobalManager" />
+                <ScalarProperty Name="OperationMgrGrpID" ColumnName="OperationMgrGrpID" />
+                <ScalarProperty Name="AuditMgrGrpID" ColumnName="AuditMgrGrpID" />
+                <ScalarProperty Name="CanUserAccessPOExtention" ColumnName="CanUserAccessPOExtention" />
+                <ScalarProperty Name="ROOprSMgr" ColumnName="ROOprSMgr" />
+                <ScalarProperty Name="RecruiterHead" ColumnName="RecruiterHead" />
+                <ScalarProperty Name="HRHead" ColumnName="HRHead" />
+                <ScalarProperty Name="InvoiceLocID" ColumnName="InvoiceLocID" />
+                <ScalarProperty Name="FTEOperationMgrGrpID" ColumnName="FTEOperationMgrGrpID" />
+                <ScalarProperty Name="FTEAuditMgrGrpID" ColumnName="FTEAuditMgrGrpID" />
+                <ScalarProperty Name="PermOperationMgrGrpID" ColumnName="PermOperationMgrGrpID" />
+                <ScalarProperty Name="PermAuditMgrGrpID" ColumnName="PermAuditMgrGrpID" />
+                <ScalarProperty Name="JoiningRemaindersDesignLayout" ColumnName="JoiningRemaindersDesignLayout" />
+                <ScalarProperty Name="V5RID" ColumnName="V5RID" />
+                <ScalarProperty Name="pswd" ColumnName="pswd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RecruiterTracking_data" FunctionName="LIVEDBModel.Store.RecruiterTracking_data" />
+          <FunctionImportMapping FunctionImportName="RecruiterTracking_insert_data" FunctionName="LIVEDBModel.Store.RecruiterTracking_insert_data" />
+          <FunctionImportMapping FunctionImportName="RecrutierCandidateTrackingCountActive" FunctionName="LIVEDBModel.Store.RecrutierCandidateTrackingCountActive" />
+          <FunctionImportMapping FunctionImportName="RecrutierCandidateTrackingCountFTE" FunctionName="LIVEDBModel.Store.RecrutierCandidateTrackingCountFTE" />
+          <FunctionImportMapping FunctionImportName="RecrutierCandidateTrackingCountInActive" FunctionName="LIVEDBModel.Store.RecrutierCandidateTrackingCountInActive" />
+          <FunctionImportMapping FunctionImportName="RecrutierCandidateTrackingCountPermanant" FunctionName="LIVEDBModel.Store.RecrutierCandidateTrackingCountPermanant" />
+          <FunctionImportMapping FunctionImportName="RecrutierCandidateTrackingDetails" FunctionName="LIVEDBModel.Store.RecrutierCandidateTrackingDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LIVEDBModel.RecrutierCandidateTrackingDetails_Result">
+                <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT NAME" />
+                <ScalarProperty Name="CANDIDATEID" ColumnName="CANDIDATEID" />
+                <ScalarProperty Name="EMPLOYEE_NO" ColumnName="EMPLOYEE NO" />
+                <ScalarProperty Name="CONSULTANT_NAME" ColumnName="CONSULTANT NAME" />
+                <ScalarProperty Name="CONTACT_NO" ColumnName="CONTACT NO" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL ID" />
+                <ScalarProperty Name="JOINING_DATE" ColumnName="JOINING DATE" />
+                <ScalarProperty Name="RECRUITER_NAME" ColumnName="RECRUITER NAME" />
+                <ScalarProperty Name="DM_NAME" ColumnName="DM NAME" />
+                <ScalarProperty Name="CANDIDATE_STATUS" ColumnName="CANDIDATE STATUS" />
+                <ScalarProperty Name="STAFFING_START_DATE" ColumnName="STAFFING START DATE" />
+                <ScalarProperty Name="ACTUAL_END_DATE" ColumnName="ACTUAL END DATE" />
+                <ScalarProperty Name="MONTHLY_BILL_RATE" ColumnName="MONTHLY BILL RATE" />
+                <ScalarProperty Name="BILL_RATE_CURRENCY" ColumnName="BILL RATE CURRENCY" />
+                <ScalarProperty Name="BILL_RATE_FREQUENCY" ColumnName="BILL RATE FREQUENCY" />
+                <ScalarProperty Name="PAY_RATE_CURRENCY" ColumnName="PAY RATE CURRENCY" />
+                <ScalarProperty Name="PAY_RATE_FREQUENCY" ColumnName="PAY RATE FREQUENCY" />
+                <ScalarProperty Name="PO_NUMBER" ColumnName="PO NUMBER" />
+                <ScalarProperty Name="PO_STATUS" ColumnName="PO STATUS" />
+                <ScalarProperty Name="PO_START_DATE" ColumnName="PO START DATE" />
+                <ScalarProperty Name="PO_END_DATE" ColumnName="PO END DATE" />
+                <ScalarProperty Name="PAY_RATE" ColumnName="PAY RATE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="GP_PERMONTH" ColumnName="GP PERMONTH" />
+                <ScalarProperty Name="GPM_PERMONTH" ColumnName="GPM PERMONTH" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RecrutierTrackingSystem" FunctionName="LIVEDBModel.Store.RecrutierTrackingSystem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LIVEDBModel.RecrutierTrackingSystem_Result">
+                <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT NAME" />
+                <ScalarProperty Name="CANDIDATEID" ColumnName="CANDIDATEID" />
+                <ScalarProperty Name="EMPLOYEE_NO" ColumnName="EMPLOYEE NO" />
+                <ScalarProperty Name="CONSULTANT_NAME" ColumnName="CONSULTANT NAME" />
+                <ScalarProperty Name="CONTACT_NO" ColumnName="CONTACT NO" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL ID" />
+                <ScalarProperty Name="JOINING_DATE" ColumnName="JOINING DATE" />
+                <ScalarProperty Name="RECRUITER_NAME" ColumnName="RECRUITER NAME" />
+                <ScalarProperty Name="DM_NAME" ColumnName="DM NAME" />
+                <ScalarProperty Name="CANDIDATE_STATUS" ColumnName="CANDIDATE STATUS" />
+                <ScalarProperty Name="STAFFING_START_DATE" ColumnName="STAFFING START DATE" />
+                <ScalarProperty Name="ACTUAL_END_DATE" ColumnName="ACTUAL END DATE" />
+                <ScalarProperty Name="MONTHLY_BILL_RATE" ColumnName="MONTHLY BILL RATE" />
+                <ScalarProperty Name="BILL_RATE_CURRENCY" ColumnName="BILL RATE CURRENCY" />
+                <ScalarProperty Name="BILL_RATE_FREQUENCY" ColumnName="BILL RATE FREQUENCY" />
+                <ScalarProperty Name="PAY_RATE_CURRENCY" ColumnName="PAY RATE CURRENCY" />
+                <ScalarProperty Name="PAY_RATE_FREQUENCY" ColumnName="PAY RATE FREQUENCY" />
+                <ScalarProperty Name="PO_NUMBER" ColumnName="PO NUMBER" />
+                <ScalarProperty Name="PO_STATUS" ColumnName="PO STATUS" />
+                <ScalarProperty Name="PO_START_DATE" ColumnName="PO START DATE" />
+                <ScalarProperty Name="PO_END_DATE" ColumnName="PO END DATE" />
+                <ScalarProperty Name="PAY_RATE" ColumnName="PAY RATE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="GP_PERMONTH" ColumnName="GP PERMONTH" />
+                <ScalarProperty Name="GP_PERWEEK" ColumnName="GP PERWEEK" />
+                <ScalarProperty Name="GPM_PERMONTH" ColumnName="GPM PERMONTH" />
+                <ScalarProperty Name="EMP_TYPE" ColumnName="EMP TYPE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="HCM_LOCATIONS">
+            <EntityTypeMapping TypeName="LIVEDBModel.HCM_LOCATIONS">
+              <MappingFragment StoreEntitySet="HCM_LOCATIONS">
+                <ScalarProperty Name="GSTAddress" ColumnName="GSTAddress" />
+                <ScalarProperty Name="GSTNo" ColumnName="GSTNo" />
+                <ScalarProperty Name="GSTStateID" ColumnName="GSTStateID" />
+                <ScalarProperty Name="MModifiedUser" ColumnName="MModifiedUser" />
+                <ScalarProperty Name="MCreatedDate" ColumnName="MCreatedDate" />
+                <ScalarProperty Name="MCreatedUser" ColumnName="MCreatedUser" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="LocationTitle" ColumnName="LocationTitle" />
+                <ScalarProperty Name="RID" ColumnName="RID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Recruiter_details_1" FunctionName="LIVEDBModel.Store.Recruiter_details_1" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
